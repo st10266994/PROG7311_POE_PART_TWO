@@ -11,7 +11,7 @@ namespace PROG7311_PART_TWO.Models
         [Required]
         public string Lastname { get; set; }
 
-        [Display(Name = "Location")]
-        public string Location { get; set; }
+        //[Display(Name = "Location")]
+        //public string Location { get; set; }
     }
 }
