@@ -10,6 +10,8 @@ namespace PROG7311_PART_TWO.Data
             : base(options)
         {
         }
+        public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+
         public DbSet<Product> Products { get; set; }
 
     }

@@ -1,0 +1,59 @@
+﻿@model PROG7311_PART_TWO.Models.Product
+
+@{
+    ViewData["Title"] = "Delete Product";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h1 class="display-5">Delete Product</h1>
+            <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+        </div>
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="bg-white p-4 rounded shadow">
+                    <h3 class="text-danger mb-4">Are you sure you want to delete this product?</h3>
+
+                    <div class="row mb-4">
+                        <div class="col-md-4 text-center">
+                            @if (!string.IsNullOrEmpty(Model.ImageUrlPath))
+                            {
+                                <img src="@Model.ImageUrlPath" alt="@Model.Name" class="img-fluid rounded" style="max-height: 200px;">
+                            }
+                            else
+                            {
+                                <img src="/img/placeholder.jpg" alt="@Model.Name" class="img-fluid rounded" style="max-height: 200px;">
+                            }
+                        </div>
+                        <div class="col-md-8">
+                            <dl class="row">
+                                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Name)</dt>
+                                <dd class="col-sm-8">@Html.DisplayFor(model => model.Name)</dd>
+
+                                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Category)</dt>
+                                <dd class="col-sm-8">@Html.DisplayFor(model => model.Category)</dd>
+
+                                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.ProductionDate)</dt>
+                                <dd class="col-sm-8">@Html.DisplayFor(model => model.ProductionDate)</dd>
+
+                                <dt class="col-sm-4">@Html.DisplayNameFor(model => model.Description)</dt>
+                                <dd class="col-sm-8">@Html.DisplayFor(model => model.Description)</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                    <form asp-action="DeleteProduct">
+                        <input type="hidden" asp-for="ProductId" />
+                        <div class="d-flex justify-content-between">
+                            <a asp-action="Products" class="btn btn-secondary">Cancel</a>
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

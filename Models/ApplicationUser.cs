@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
 
 namespace PROG7311_PART_TWO.Models
 {
@@ -11,7 +12,8 @@ namespace PROG7311_PART_TWO.Models
         [Required]
         public string Lastname { get; set; }
 
-        //[Display(Name = "Location")]
-        //public string Location { get; set; }
+        [Display(Name = "Location")]
+  
+        public string Location { get; set; }
     }
 }

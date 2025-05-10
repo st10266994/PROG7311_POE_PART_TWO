@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PROG7311_PART_TWO.Models.Product>
+
+@{
+    ViewData["Title"] = "My Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h1 class="display-5">My Products</h1>
+            <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+        </div>
+
+        <div class="row">
+            <div class="col-12 text-end mb-3">
+                <a asp-action="CreateProduct" class="btn btn-primary">Add New Product</a>
+            </div>
+        </div>
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info">
+                You haven't added any products yet. Click the "Add New Product" button to get started.
+            </div>
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-item position-relative bg-white p-3 rounded shadow h-100 d-flex flex-column">
+                            @if (!string.IsNullOrEmpty(item.ImageUrlPath))
+                            {
+                                <img class="img-fluid w-100 mb-3" style="object-fit: cover; height: 200px;" src="@item.ImageUrlPath" alt="@item.Name">
+                            }
+                            else
+                            {
+                                <img class="img-fluid w-100 mb-3" style="object-fit: cover; height: 200px;" src="/img/placeholder.jpg" alt="@item.Name">
+                            }
+                            <h5 style="color:#000:">@item.Name</h5>
+                            <p class="mb-2"><strong>Category:</strong> @item.Category</p>
+                            <p class="mb-2"><strong>Production Date:</strong> @item.ProductionDate.ToShortDateString()</p>
+                            <p class="mb-4 text-truncate">@item.Description</p>
+
+                            <div class="mt-auto d-flex">
+                                <a asp-action="EditProduct" asp-route-id="@item.ProductId" class="btn btn-outline-primary me-2 flex-grow-1">Edit</a>
+                                <a asp-action="DeleteProduct" asp-route-id="@item.ProductId" class="btn btn-outline-danger flex-grow-1">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+    </div>
+</div>
