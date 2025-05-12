@@ -13,18 +13,21 @@ namespace PROG7311_PART_TWO.Controllers
     public class FarmerController : Controller
     {
         private readonly ApplicationDbContext _context;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly UserManager<ApplicationUser> _userManager;
         private readonly IWebHostEnvironment _webHostEnvironment;
-        private readonly SignInManager<IdentityUser> _signInManager;
+        private readonly SignInManager<ApplicationUser> _signInManager;
 
-        public FarmerController(ApplicationDbContext context, UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signInManager,
-            IWebHostEnvironment webHostEnvironment)
+        public FarmerController(ApplicationDbContext context,
+                                UserManager<ApplicationUser> userManager,
+                                SignInManager<ApplicationUser> signInManager, 
+                                IWebHostEnvironment webHostEnvironment)
         {
             _context = context;
             _userManager = userManager;
             _signInManager = signInManager;
             _webHostEnvironment = webHostEnvironment;
         }
+
 
         // GET: Farmer/Products
         public async Task<IActionResult> ProductIndex()
