@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PROG7311_PART_TWO.Controllers
 {
-    [Authorize(Roles = "Employee")]
+    [Authorize(Roles = "Admin")]
     public class AppRolesController : Controller
     {
         private readonly RoleManager<IdentityRole> _roleManager;

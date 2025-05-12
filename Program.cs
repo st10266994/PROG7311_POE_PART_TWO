@@ -18,7 +18,12 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>()
 .AddDefaultUI()
 .AddDefaultTokenProviders();
 builder.Services.AddControllersWithViews();
-
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.AccessDeniedPath = "/AccessDenied";
+    options.LoginPath = "/Identity/Account/Login";
+    options.LogoutPath = "/Identity/Account/Logout";
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

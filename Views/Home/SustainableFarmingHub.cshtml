@@ -1,0 +1,211 @@
+﻿@{
+    ViewData["Title"] = "Sustainable Farming Hub";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Hero Section -->
+<section id="sustainable-farming-hero" class="hero section dark-background">
+    <div id="hero-carousel" class="carousel slide carousel-fade" data-bs-ride="carousel" data-bs-interval="5000">
+        <div class="carousel-item active">
+            <img src="assets/img/hero_1.jpg" alt="Sustainable Farming">
+            <div class="carousel-container">
+                <h2>Sustainable Farming Hub</h2>
+                <p>A resource center for sharing best practices in sustainable farming techniques and methods.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Main Content Section -->
+<section class="section">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h2 class="display-5">Best Practices in Sustainable Farming</h2>
+            <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+        </div>
+
+        <!-- Resource Categories -->
+        <div class="row g-4 mb-5">
+            <div class="col-lg-4">
+                <div class="bg-white p-4 rounded shadow h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-droplet-fill text-white"></i>
+                        </div>
+                        <h4 class="ms-3 mb-0">Water Conservation</h4>
+                    </div>
+                    <p>Discover the latest techniques and technologies for conserving water in agricultural practices, from drip irrigation to rainwater harvesting.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Drip Irrigation Systems</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Rainwater Harvesting</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Soil Moisture Monitoring</li>
+                        <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Drought-Resistant Crops</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="bg-white p-4 rounded shadow h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-flower1 text-white"></i>
+                        </div>
+                        <h4 class="ms-3 mb-0">Organic Farming</h4>
+                    </div>
+                    <p>Learn how to transition to organic farming practices, reduce chemical inputs, and improve soil health through natural methods.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Natural Pest Control</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Composting Techniques</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Crop Rotation Strategies</li>
+                        <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Certification Process</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="bg-white p-4 rounded shadow h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
+                            <i class="bi bi-layers-fill text-white"></i>
+                        </div>
+                        <h4 class="ms-3 mb-0">Soil Health</h4>
+                    </div>
+                    <p>Explore strategies for maintaining and improving soil health, fertility, and structure for sustainable agricultural production.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Cover Cropping</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> No-Till Farming</li>
+                        <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> Soil Testing Methods</li>
+                        <li><i class="bi bi-check-circle-fill text-primary me-2"></i> Natural Fertilizers</li>
+                    </ul>
+                    <a href="#" class="btn btn-outline-primary mt-3">Learn More</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Forum Section -->
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h2 class="display-5">Farmer Forums</h2>
+            <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+            <p>Connect with other farmers, share experiences, and get advice from experts in sustainable farming.</p>
+        </div>
+
+        <div class="bg-white p-4 rounded shadow mb-5">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <h4 class="mb-0">Recent Discussions</h4>
+                <a href="#" class="btn btn-primary">Start New Discussion</a>
+            </div>
+
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Topic</th>
+                            <th>Category</th>
+                            <th>Author</th>
+                            <th>Replies</th>
+                            <th>Last Post</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><a href="#" class="text-decoration-none">Tips for first-time organic farmers</a></td>
+                            <td><span class="badge bg-success">Organic Farming</span></td>
+                            <td>John Doe</td>
+                            <td>24</td>
+                            <td>Today at 10:45 AM</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="text-decoration-none">How to set up a drip irrigation system</a></td>
+                            <td><span class="badge bg-info">Water Conservation</span></td>
+                            <td>Jane Smith</td>
+                            <td>18</td>
+                            <td>Yesterday at 3:20 PM</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="text-decoration-none">Best cover crops for winter season</a></td>
+                            <td><span class="badge bg-warning text-dark">Soil Health</span></td>
+                            <td>Mike Johnson</td>
+                            <td>32</td>
+                            <td>May 10, 2025</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="text-decoration-none">Natural pest control methods that actually work</a></td>
+                            <td><span class="badge bg-success">Organic Farming</span></td>
+                            <td>Sarah Williams</td>
+                            <td>42</td>
+                            <td>May 8, 2025</td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" class="text-decoration-none">Soil testing: DIY vs. Professional</a></td>
+                            <td><span class="badge bg-warning text-dark">Soil Health</span></td>
+                            <td>Robert Brown</td>
+                            <td>15</td>
+                            <td>May 5, 2025</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary">View All Discussions</a>
+            </div>
+        </div>
+
+        <!-- Success Stories Section -->
+        <div class="text-center mx-auto mb-5" style="max-width: 600px;">
+            <h2 class="display-5">Success Stories</h2>
+            <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+        </div>
+
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="bg-white p-4 rounded shadow h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="assets/img/testimonials/testimonials-1.jpg" alt="Farmer" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div class="ms-3">
+                            <h5 class="mb-1">David Thompson</h5>
+                            <p class="mb-0 text-muted">Organic Vegetable Farmer, Michigan</p>
+                        </div>
+                    </div>
+                    <p>"After implementing the organic farming techniques I learned from this hub, my crop yields increased by 30% while reducing water usage by 40%. The community support has been invaluable in my transition to fully sustainable practices."</p>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Read Full Story</a>
+                </div>
+            </div>
+
+            <div class="col-lg-6">
+                <div class="bg-white p-4 rounded shadow h-100">
+                    <div class="d-flex align-items-center mb-3">
+                        <img src="assets/img/testimonials/testimonials-2.jpg" alt="Farmer" class="rounded-circle" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div class="ms-3">
+                            <h5 class="mb-1">Maria Rodriguez</h5>
+                            <p class="mb-0 text-muted">Small-Scale Farmer, California</p>
+                        </div>
+                    </div>
+                    <p>"The soil health practices I adopted from this platform transformed my depleted fields into thriving ecosystems. My production costs have decreased significantly, and I'm now able to charge premium prices for my sustainably grown produce."</p>
+                    <a href="#" class="btn btn-sm btn-outline-primary">Read Full Story</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="call-to-action section light-background">
+    <div class="content">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-8">
+                    <h3>Join Our Sustainable Farming Community</h3>
+                    <p class="opacity-50">
+                        Connect with like-minded farmers, share your experiences, and access exclusive resources.
+                    </p>
+                </div>
+                <div class="col-lg-4 text-lg-end">
+                    <a href="/Identity/Account/Register" class="btn btn-primary px-4 py-2">Sign Up Today</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
