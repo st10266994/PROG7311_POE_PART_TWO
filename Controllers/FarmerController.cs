@@ -312,6 +312,26 @@ namespace PROG7311_PART_TWO.Controllers
         {
             return _context.Products.Any(e => e.ProductId == id);
         }
+        // GET: Farmer/ProductDetails/5
+        public async Task<IActionResult> ProductDetails(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var userId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            var product = await _context.Products
+                .Include(p => p.User)
+                .FirstOrDefaultAsync(m => m.ProductId == id && m.UserId == userId);
+
+            if (product == null)
+            {
+                return NotFound();
+            }
+
+            return View(product);
+        }
 
         // POST: Farmer/UpdatePassword
         [HttpPost]

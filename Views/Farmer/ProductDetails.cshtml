@@ -1,0 +1,44 @@
+﻿@model PROG7311_PART_TWO.Models.Product
+@{
+    ViewData["Title"] = "Product Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h1 class="display-5">Product Details</h1>
+            <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                @if (!string.IsNullOrEmpty(Model.ImageUrlPath))
+                {
+                    <img class="img-fluid rounded shadow mb-4" src="@Model.ImageUrlPath" alt="@Model.Name">
+                }
+                else
+                {
+                    <img class="img-fluid rounded shadow mb-4" src="/images/products/default-product.jpg" alt="@Model.Name">
+                }
+            </div>
+            <div class="col-md-8">
+                <div class="bg-white p-4 rounded shadow">
+                    <h2 class="mb-3">@Model.Name</h2>
+                    <div class="mb-3">
+                        <span class="badge bg-primary">@Model.Category</span>
+                    </div>
+                    <p class="mb-3"><strong>Production Date:</strong> @Model.ProductionDate.ToShortDateString()</p>
+                    <h5 class="mb-2">Description</h5>
+                    <p class="mb-4">@Model.Description</p>
+
+                    <div class="d-flex">
+                        <a asp-action="EditProduct" asp-route-id="@Model.ProductId" class="btn btn-outline-primary me-2">Edit</a>
+                        <a asp-action="DeleteProduct" asp-route-id="@Model.ProductId" class="btn btn-outline-danger me-2">Delete</a>
+                        <a asp-action="ProductIndex" class="btn btn-outline-secondary">Back to Products</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

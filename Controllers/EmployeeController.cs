@@ -191,6 +191,36 @@ namespace PROG7311_PART_TWO.Controllers
 
             return View(product);
         }
-    }
 
+        // GET: Employee/FarmerProducts/5
+        public async Task<IActionResult> FarmerProducts(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var farmer = await _context.ApplicationUsers.FindAsync(id);
+            if (farmer == null)
+            {
+                return NotFound();
+            }
+
+            // Check if the user is actually a farmer
+            var isInRole = await _userManager.IsInRoleAsync(farmer, "Farmer");
+            if (!isInRole)
+            {
+                return NotFound();
+            }
+
+            var products = await _context.Products
+                .Include(p => p.User)
+                .Where(p => p.UserId == id)
+                .ToListAsync();
+
+            ViewBag.Farmer = farmer;
+
+            return View(products);
+        }
+    }
 }

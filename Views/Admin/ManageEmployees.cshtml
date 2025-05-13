@@ -3,20 +3,24 @@
     ViewData["Title"] = "Manage Employees";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<style>
+    .btn-primary {
+        background-color: seagreen;
+        border: none;
+        
+    }
+</style>
 <div class="container-fluid py-5">
     <div class="container">
         <div class="text-center mx-auto mb-5" style="max-width: 500px;">
             <h1 class="display-5">Employees</h1>
             <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
         </div>
-
         <div class="row">
             <div class="col-12 text-end mb-3">
                 <a asp-action="RegisterEmployee" class="btn btn-primary">Register New Employee</a>
             </div>
         </div>
-
         @if (!Model.Any())
         {
             <div class="alert alert-info">
@@ -24,35 +28,26 @@
             </div>
         }
         else
-        {
-            <div class="row">
+    {
+            <div class="row mt-5">
                 <div class="col-12">
-                    <div class="table-responsive bg-white rounded shadow">
-                        <table class="table table-striped table-hover mb-0">
-                            <thead class="bg-primary text-white">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Email</th>
-                                    <th>Phone Number</th>
-                                    <th>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach (var item in Model)
-                                {
-                                    <tr>
-                                        <td>@item.Firstname @item.Lastname</td>
-                                        <td>@item.Email</td>
-                                        <td>@item.PhoneNumber</td>
-                                        <td>
-                                            <a asp-action="DeleteEmployee" asp-route-id="@item.Id" class="btn btn-sm btn-outline-danger">Delete</a>
-                                        </td>
-                                    </tr>
-                                }
-                            </tbody>
-                        </table>
-                    </div>
                 </div>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 col-lg-4 mb-4">
+                        <div class="card h-100 shadow">
+                            <div class="card-body">
+                                <h5 class="card-title">@item.Firstname @item.Lastname</h5>
+                                <p class="card-text"><i class="bi bi-envelope me-2"></i>@item.Email</p>
+                                <p class="card-text"><i class="bi bi-telephone me-2"></i>@item.PhoneNumber</p>
+                            </div>
+                            <div class="card-footer bg-white border-0 d-flex">
+                                <a asp-action="EditEmployee" asp-route-id="@item.Id" class="btn btn-outline-secondary flex-grow-1 me-2">Edit</a>
+                                <a asp-action="DeleteEmployee" asp-route-id="@item.Id" class="btn btn-outline-danger flex-grow-1">Delete</a>
+                            </div>
+                        </div>
+                    </div>
+                }
             </div>
         }
     </div>

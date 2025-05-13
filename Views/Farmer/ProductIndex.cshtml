@@ -45,8 +45,11 @@
                             <p class="mb-4 text-truncate">@item.Description</p>
 
                             <div class="mt-auto d-flex">
+                                <a asp-action="ProductDetails" asp-route-id="@item.ProductId" class="btn btn-outline-primary me-2 flex-grow-1">Details</a>
+
                                 <a asp-action="EditProduct" asp-route-id="@item.ProductId" class="btn btn-outline-primary me-2 flex-grow-1">Edit</a>
                                 <a asp-action="DeleteProduct" asp-route-id="@item.ProductId" class="btn btn-outline-danger flex-grow-1">Delete</a>
+
                             </div>
                         </div>
                     </div>

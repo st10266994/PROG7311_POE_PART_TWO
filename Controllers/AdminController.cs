@@ -77,6 +77,55 @@ namespace PROG7311_PART_TWO.Controllers
 
             return View(model);
         }
+        // GET: Admin/EditEmployee/5
+        public async Task<IActionResult> EditEmployee(string id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.ApplicationUsers.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            // Check if the user is actually an employee
+            var isInRole = await _userManager.IsInRoleAsync(user, "Employee");
+            if (!isInRole)
+            {
+                return NotFound();
+            }
+
+            return View(user);
+        }
+
+        // POST: Admin/EditEmployee/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> EditEmployee(string id, ApplicationUser model)
+        {
+            if (id != model.Id)
+            {
+                return NotFound();
+            }
+
+            var user = await _context.ApplicationUsers.FindAsync(id);
+            if (user == null)
+            {
+                return NotFound();
+            }
+
+            
+                    user.Firstname = model.Firstname;
+                    user.Lastname = model.Lastname;
+                    user.PhoneNumber = model.PhoneNumber;
+
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(ManageEmployees));
+               
+        }
 
         // GET: Admin/DeleteEmployee/5
         public async Task<IActionResult> DeleteEmployee(string id)
