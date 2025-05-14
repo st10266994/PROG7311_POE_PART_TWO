@@ -1,181 +1,186 @@
-# Agri-Energy Connect Platform
+<a id="readme-top"></a>
 
+<!-- BADGES -->
+[![Build Status](https://img.shields.io/badge/Visual%20Studio-2022-purple?style=for-the-badge&logo=visualstudio)](#)
+[![Database](https://img.shields.io/badge/SQL%20Server-MS%20SQL-lightgray?style=for-the-badge&logo=microsoftsqlserver)](#)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge)](#)
 
+<br />
+<p align="center">
+  <img src="logo.png" alt="Agri-Energy Connect Logo" width="80" />
+  <h1 align="center">Agri-Energy Connect Platform</h1>
+  <p align="center">
+    Bridging Farmers & Green Energy Innovation 🌱⚡
+    <br />
+    <strong>PROG7311 - Enterprise Application Development</strong>
+    <br />
+    <strong>Student: Alyssia Sookdeo | ST10266994</strong>
+  </p>
+</p>
+
+---
+
+## 📚 Table of Contents
+
+- [📋 Project Overview](#-project-overview)
+- [🌱 Features](#-features)
+- [🔧 Architecture Overview](#-architecture-overview)
+- [💻 Development Setup](#-development-setup)
+  - [🧰 Prerequisites](#-prerequisites)
+  - [⚙️ Installation & Build Steps](#️-installation--build-steps)
+  - [🔗 Configure Connection String](#-configure-connection-string)
+- [🚀 Running the Application](#-running-the-application)
+- [🔐 User Roles & Authentication](#-user-roles--authentication)
+- [🗃️ Database Schema](#️-database-schema)
+- [🧪 Testing Guide](#-testing-guide)
+- [⚠️ Known Issues](#️-known-issues)
+- [🔮 Future Enhancements](#-future-enhancements)
+- [👩‍💻 Author](#-author)
+
+---
 
 ## 📋 Project Overview
 
-This prototype web application bridges the gap between the agricultural sector and green energy technology providers, creating a digital ecosystem where farmers, green energy experts, and enthusiasts can collaborate, share resources, and innovate in sustainable agriculture and renewable energy.
+**Agri-Energy Connect** is a web-based prototype that creates a collaborative space for farmers and renewable energy providers. The platform allows:
 
-### Repository Information
-- **Project Owner:** Alyssia Sookdeo
-- **Student Number:** ST10266994
-- **Module:** PROG7311
-- **Year:** 2025
+- Farmers to log and manage produce.
+- Employees to manage farmer profiles and product inventories.
+- Seamless interaction between agriculture and sustainability.
 
 ---
 
 ## 🌱 Features
 
-### For Farmers
-- Secure login and profile management
-- Add and manage agricultural products with details (name, category, production date)
-- View personal product listings
+### 👨‍🌾 Farmers
+- Secure login & menu dropdown
+- Add products (name, category, production date)
+- View their own product listings
 
-### For Employees
-- Secure login with authenticated access
-- Add new farmer profiles to the system
-- View and filter all products from specific farmers
-- Search products using criteria (date range, product type)
+### 👩‍💼 Employees
+- Secure login & menu dropdown
+- Add new farmer profiles
+- View and filter all products 
+- Filter by date range, farmers, and product type
 
 ---
 
-## 🔧 Technical Architecture
+## 🔧 Architecture Overview
 
-This application implements a multi-tier architecture:
-
-- **Presentation Layer**: ASP.NET MVC with responsive design
-- **Business Logic Layer**: C# service classes with business rules
-- **Data Access Layer**: Entity Framework Core with SQL Server
+- **Frontend**: ASP.NET MVC (Razor Views)
+- **Backend**: C# with Entity Framework Core
 - **Database**: Microsoft SQL Server
-
+- **Auth**: ASP.NET Core Identity
 
 ---
 
-## 💻 Development Environment Setup
+## 💻 Development Setup
 
-### Prerequisites
+### 🧰 Prerequisites
 
-- Visual Studio 2022 (or later)
-- SQL Server Management Studio 18.0 (or later)
-- .NET 6.0 SDK (or later)
-- Windows 10/11 operating system
+- ✅ Visual Studio 2022 or newer
+- ✅ .NET 6 SDK
+- ✅ SQL Server Management Studio 18+
+- ✅ Git
 
-### Installation Steps
+---
 
-1. **Clone the repository**
-   ```
+### ⚙️ Installation & Build Steps
+
+1. **Clone the Repository**
+   ```bash
    git clone https://github.com/st10266994/PROG7311_POE_PART_TWO.git
    cd AgriEnergyConnect
-   ```
+   Restore NuGet Packages
 
-2. **Database Setup**
-   - Open SQL Server Management Studio
-   - Connect to your local SQL Server instance
-   - Execute the database creation script:
-     ```
-     File location: /Database/AgriEnergyConnectDB_Setup.sql
-     ```
-   - Verify the database was created successfully
+Right-click the solution > Restore NuGet Packages
 
-3. **Configure Database Connection**
-   - Open the solution in Visual Studio
-   - Locate the `appsettings.json` file in the project root
-   - Update the connection string to match your SQL Server configuration:
-     ```json
-     "ConnectionStrings": {
-       "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=AgriEnergyConnectDB;Trusted_Connection=True;MultipleActiveResultSets=true"
-     }
-     ```
+Build the Solution
 
-4. **Restore NuGet Packages**
-   - Right-click on the solution in Solution Explorer
-   - Select "Restore NuGet Packages"
-   - Wait for the process to complete
+Menu: Build > Build Solution or Ctrl+Shift+B
 
-5. **Build the Solution**
-   - Press `Ctrl+Shift+B` or select "Build > Build Solution" from the menu
-   - Ensure there are no build errors
+🔗 Configure Connection String
+Navigate to appsettings.json
 
----
+Replace YOUR_SERVER_NAME with your SQL Server instance:
 
-## 🚀 Running the Application
+json
+Copy
+Edit
+"ConnectionStrings": {
+  "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=AgriEnergyConnectDB;Trusted_Connection=True;MultipleActiveResultSets=true"
+}
+Execute the script at:
 
-1. **Set the Web Project as Startup Project**
-   - Right-click on "AgriEnergyConnect.Web" in Solution Explorer
-   - Select "Set as Startup Project"
+pgsql
+Copy
+Edit
+/Database/AgriEnergyConnectDB_Setup.sql
+Confirm database is created successfully.
 
-2. **Run the Application**
-   - Press `F5` or click the "Start" button in Visual Studio
-   - The application will launch in your default browser
+🚀 Running the Application
+Set Web App as Startup Project
 
-3. **Login Credentials**
-   
-   **Farmer Account:**
-   - Username: `farmer@gmail.com`
-   - Password: `Password@1`
-   
-   **Employee Account:**
-   - Username: `alyssiasookdeo@gmail.com`
-   - Password: `Password@1`
+Right-click AgriEnergyConnect.Web > Set as Startup Project
 
----
+Run the App
 
-## 🔑 System Authentication
+Click ▶️ Start or press F5
 
-The system uses ASP.NET Core Identity for authentication and authorization:
+Opens in default browser
 
-1. **Authentication Flow**
-   - Users navigate to the login page
-   - Credentials are validated against the database
-   - Successful login redirects to role-specific dashboard
+Login Credentials
 
-2. **Role-Based Access Control**
-   - Farmers have access to their product management features
-   - Employees have access to farmer management and product viewing features
+Role	Username	Password
+Farmer	farmer@gmail.com	Password@1
+Employee	alyssiasookdeo@gmail.com	Password@1
 
----
+🔐 User Roles & Authentication
+🔑 Authentication: ASP.NET Core Identity
 
-## 📊 Database Schema
+🔒 Roles: Role-based access control
 
-The database consists of the following primary tables:
+Farmers: Personal product management
 
-- **Users** - Stores authentication details
-- **Roles** - Defines user roles (Farmer, Employee)
-- **UserRoles** - Maps users to their roles
-- **Farmers** - Stores farmer profile information
-- **Products** - Contains product details with farmer associations
+Employees: Farmer registration, product viewing & filtering
 
+🗃️ Database Schema
+Table	Description
+Users	Stores login credentials
+Roles	Role definitions: Farmer, Employee
+UserRoles	Maps users to their roles
+Farmers	Farmer details
+Products	Products added by farmers
 
----
+🧪 Testing Guide
+Login Tests
+Access login page
 
-## 🧪 Testing the Application
+Use provided credentials
 
-1. **Login Testing**
-   - Navigate to the login page
-   - Enter the provided credentials for either a farmer or employee
-   - Verify you are redirected to the appropriate dashboard
+Redirected to correct dashboard
 
-2. **Farmer Features Testing**
-   - Login as a farmer
-   - Navigate to "My Products"
-   - Try adding a new product with all required fields
-   - Verify the product appears in your listing
+Farmer Workflow
+Login → Add Product → View Listing
 
-3. **Employee Features Testing**
-   - Login as an employee
-   - Navigate to "Manage Farmers"
-   - Try adding a new farmer profile
-   - Navigate to "View Products" to see products by farmer
-   - Test the filtering functionality by date range and product type
+Employee Workflow
+Login → Add Farmer → View/Filter Products
 
----
+⚠️ Known Issues
+⚠️ Minor responsiveness bugs on small screens
 
-## 📝 Known Issues
+⚠️ DatePicker formatting may differ per browser
 
-- Filter functionality may be slow with large datasets
-- Some responsive design elements need improvement on very small screens
-- Date picker may show inconsistent formatting in some browsers
+⚠️ Filtering may lag on large datasets
 
----
+🔮 Future Enhancements
+📈 API Integration for weather-based farming advice
 
-## 🔄 Future Enhancements
+🔔 Real-time product update notifications
 
-- Integration with weather data API for farming insights
-- Implementation of notification system for product updates
-- Enhanced reporting capabilities for employees
-- Mobile application version
+📱 Mobile app version
 
----
+📊 Advanced analytics dashboard
 
-
-
+👩‍💻 Author
+<table> <tr> <td align="center"> <a href="https://github.com/ST10266994"> <img src="https://avatars.githubusercontent.com/u/158015110?s=400&v=4" width="100px;" alt="Alyssia Sookdeo"/> <br /><sub><b>Alosa Grace</b></sub> </a> <br/> <a href="mailto:ST10266994@vcconnect.edu.za">ST10266994@vcconnect.edu.za</a> </td> </tr> </table>
+<p align="right">(<a href="#readme-top">back to top</a>)</p> ```
