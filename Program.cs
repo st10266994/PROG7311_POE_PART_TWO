@@ -4,7 +4,11 @@ using PROG7311_PART_TWO.Data;
 using PROG7311_PART_TWO.Models;
 
 var builder = WebApplication.CreateBuilder(args);
-
+//CODE ATTRIBUTION
+//ROLE BASED AUTHORIZATION
+//AUTHOR: Microsoft
+//SOURCE: https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-8.0
+//DATE ACCESSED: 1 May 2025
 // Add services to the container.
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'DefaultConnection' not found.");
 builder.Services.AddDbContext<ApplicationDbContext>(options =>

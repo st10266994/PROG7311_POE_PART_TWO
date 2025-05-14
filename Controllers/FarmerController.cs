@@ -7,7 +7,11 @@ using PROG7311_PART_TWO.Models;
 using System.Security.Claims;
 
 namespace PROG7311_PART_TWO.Controllers
-
+//CODE ATTRIBUTION
+// QUERY FILTERS 
+//AUTHOR: Microsoft 
+//SOURCE: https://learn.microsoft.com/en-us/ef/core/querying/filters
+//DATE ACCESSED: 4 May 2025
 {
     [Authorize(Roles = "Farmer")]
     public class FarmerController : Controller

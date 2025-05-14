@@ -4,6 +4,13 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PROG7311_PART_TWO.Controllers
 {
+    //CODE ATTRIBUTION
+    //ROLE BASED AUTHORIZATION
+    //AUTHOR: Microsoft
+    //SOURCE: https://learn.microsoft.com/en-us/aspnet/core/security/authorization/roles?view=aspnetcore-8.0
+    //DATE ACCESSED: 1 May 2025
+
+    
     [Authorize(Roles = "Admin")]
     public class AppRolesController : Controller
     {

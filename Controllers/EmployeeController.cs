@@ -7,6 +7,17 @@ using PROG7311_PART_TWO.Models;
 
 namespace PROG7311_PART_TWO.Controllers
 {
+    //CODE ATTRIBUTION
+    // CREATING AND DELETING USERS 
+    //AUTHOR: YogiHosting
+    //SOURCE: https://www.yogihosting.com/aspnet-core-identity-create-read-update-delete-users/
+    //DATE ACCESSED: 1 May 2025
+
+    //CODE ATTRIBUTION
+    // QUERY FILTERS 
+    //AUTHOR: Microsoft 
+    //SOURCE: https://learn.microsoft.com/en-us/ef/core/querying/filters
+    //DATE ACCESSED: 4 May 2025
     [Authorize(Roles = "Employee")]
     public class EmployeeController : Controller
     {
