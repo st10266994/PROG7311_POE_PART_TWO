@@ -1,3 +1,4 @@
+
 <a id="readme-top"></a>
 
 <!-- BADGES -->
@@ -7,13 +8,11 @@
 
 <br />
 <p align="center">
-  <img src="logo.png" alt="Agri-Energy Connect Logo" width="80" />
+  <img src="logo.png" alt="Agri-Energy Connect Logo" width="100" />
   <h1 align="center">Agri-Energy Connect Platform</h1>
   <p align="center">
-    Bridging Farmers & Green Energy Innovation 🌱⚡
-    <br />
-    <strong>PROG7311 - Enterprise Application Development</strong>
-    <br />
+    Bridging Farmers & Green Energy Innovation 🌱⚡<br>
+    <strong>PROG7311 - Enterprise Application Development</strong><br>
     <strong>Student: Alyssia Sookdeo | ST10266994</strong>
   </p>
 </p>
@@ -43,9 +42,9 @@
 
 **Agri-Energy Connect** is a web-based prototype that creates a collaborative space for farmers and renewable energy providers. The platform allows:
 
-- Farmers to log and manage produce.
-- Employees to manage farmer profiles and product inventories.
-- Seamless interaction between agriculture and sustainability.
+- 🌾 Farmers to log and manage products  
+- 🧑‍💼 Employees to manage farmer profiles and product inventories  
+- 🌍 Seamless interaction between agriculture and sustainability  
 
 ---
 
@@ -66,10 +65,10 @@
 
 ## 🔧 Architecture Overview
 
-- **Frontend**: ASP.NET MVC (Razor Views)
-- **Backend**: C# with Entity Framework Core
-- **Database**: Microsoft SQL Server
-- **Auth**: ASP.NET Core Identity
+- **Frontend:** ASP.NET MVC (Razor Views)  
+- **Backend:** C# with Entity Framework Core  
+- **Database:** Microsoft SQL Server  
+- **Auth:** ASP.NET Core Identity  
 
 ---
 
@@ -77,110 +76,139 @@
 
 ### 🧰 Prerequisites
 
-- ✅ Visual Studio 2022 or newer
-- ✅ .NET 6 SDK
-- ✅ SQL Server Management Studio 18+
-- ✅ Git
+- ✅ Visual Studio 2022 or newer  
+- ✅ .NET 6 SDK  
+- ✅ SQL Server Management Studio 18+  
+- ✅ Git  
 
 ---
 
 ### ⚙️ Installation & Build Steps
 
+<details>
+<summary><strong>Click to expand setup steps 🛠️</strong></summary>
+
 1. **Clone the Repository**
    ```bash
    git clone https://github.com/st10266994/PROG7311_POE_PART_TWO.git
    cd AgriEnergyConnect
-   Restore NuGet Packages
+   ```
 
-Right-click the solution > Restore NuGet Packages
+2. **Restore NuGet Packages**
+   - In Visual Studio: Right-click the solution > `Restore NuGet Packages`
 
-Build the Solution
+3. **Build the Solution**
+   - Use `Ctrl + Shift + B` or go to `Build > Build Solution`
 
-Menu: Build > Build Solution or Ctrl+Shift+B
+</details>
 
-🔗 Configure Connection String
-Navigate to appsettings.json
+---
 
-Replace YOUR_SERVER_NAME with your SQL Server instance:
+### 🔗 Configure Connection String
 
-json
-Copy
-Edit
+1. Locate the `appsettings.json` file  
+2. Replace `YOUR_SERVER_NAME` with your SQL Server name:
+
+```json
 "ConnectionStrings": {
   "DefaultConnection": "Server=YOUR_SERVER_NAME;Database=AgriEnergyConnectDB;Trusted_Connection=True;MultipleActiveResultSets=true"
 }
-Execute the script at:
+```
 
-pgsql
-Copy
-Edit
+3. In SSMS, run the setup script:  
+```
 /Database/AgriEnergyConnectDB_Setup.sql
-Confirm database is created successfully.
+```
 
-🚀 Running the Application
-Set Web App as Startup Project
+---
 
-Right-click AgriEnergyConnect.Web > Set as Startup Project
+## 🚀 Running the Application
 
-Run the App
+1. **Set Startup Project**
+   - Right-click `AgriEnergyConnect.Web` > Set as Startup Project
 
-Click ▶️ Start or press F5
+2. **Run the App**
+   - Press `F5` or click ▶️ Start
 
-Opens in default browser
+3. **Login Credentials**
 
-Login Credentials
+| Role     | Username                  | Password     |
+|----------|---------------------------|--------------|
+| Farmer   | `farmer@gmail.com`        | `Password@1` |
+| Employee | `alyssiasookdeo@gmail.com`| `Password@1` |
 
-Role	Username	Password
-Farmer	farmer@gmail.com	Password@1
-Employee	alyssiasookdeo@gmail.com	Password@1
+---
 
-🔐 User Roles & Authentication
-🔑 Authentication: ASP.NET Core Identity
+## 🔐 User Roles & Authentication
 
-🔒 Roles: Role-based access control
+- 🔑 **Authentication**: ASP.NET Core Identity  
+- 🔒 **Role-based Access**:  
 
-Farmers: Personal product management
+  | Role     | Permissions |
+  |----------|-------------|
+  | Farmer   | Add/view personal products |
+  | Employee | Add/view all products & farmers |
 
-Employees: Farmer registration, product viewing & filtering
+---
 
-🗃️ Database Schema
-Table	Description
-Users	Stores login credentials
-Roles	Role definitions: Farmer, Employee
-UserRoles	Maps users to their roles
-Farmers	Farmer details
-Products	Products added by farmers
+## 🗃️ Database Schema
 
-🧪 Testing Guide
-Login Tests
-Access login page
+| Table       | Description                          |
+|-------------|--------------------------------------|
+| `Users`     | Stores login credentials             |
+| `Roles`     | Role definitions (Farmer, Employee)  |
+| `UserRoles` | Maps users to their assigned roles   |
+| `Farmers`   | Profile info of registered farmers   |
+| `Products`  | Product entries by farmers           |
 
-Use provided credentials
+---
 
-Redirected to correct dashboard
+## 🧪 Testing Guide
 
-Farmer Workflow
-Login → Add Product → View Listing
+### ✅ Login Tests
+- Navigate to `/Login`  
+- Enter credentials  
+- Redirects to appropriate dashboard
 
-Employee Workflow
-Login → Add Farmer → View/Filter Products
+### ✅ Farmer Workflow
+- Login → Add Product → View Product List
 
-⚠️ Known Issues
-⚠️ Minor responsiveness bugs on small screens
+### ✅ Employee Workflow
+- Login → Add Farmer → View/Filter Products
 
-⚠️ DatePicker formatting may differ per browser
+---
 
-⚠️ Filtering may lag on large datasets
+## ⚠️ Known Issues
 
-🔮 Future Enhancements
-📈 API Integration for weather-based farming advice
+- 🐛 Some UI elements may break on mobile  
+- 🐛 DatePicker inconsistencies across browsers  
+- 🐢 Filtering may be slow with large datasets  
 
-🔔 Real-time product update notifications
+---
 
-📱 Mobile app version
+## 🔮 Future Enhancements
 
-📊 Advanced analytics dashboard
+- ☀️ API integration for farming/weather insights  
+- 📲 Mobile app version  
+- 🔔 Real-time notifications  
+- 📊 Admin analytics dashboard  
 
-👩‍💻 Author
-<table> <tr> <td align="center"> <a href="https://github.com/ST10266994"> <img src="https://avatars.githubusercontent.com/u/158015110?s=400&v=4" width="100px;" alt="Alyssia Sookdeo"/> <br /><sub><b>Alosa Grace</b></sub> </a> <br/> <a href="mailto:ST10266994@vcconnect.edu.za">ST10266994@vcconnect.edu.za</a> </td> </tr> </table>
-<p align="right">(<a href="#readme-top">back to top</a>)</p> ```
+---
+
+## 👩‍💻 Author
+
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/ST10266994">
+        <img src="https://avatars.githubusercontent.com/u/158015110?s=400&v=4" width="100px;" alt="Alyssia Sookdeo"/>
+        <br />
+        <sub><b>Alyssia Sookdeo</b></sub>
+      </a>
+      <br/>
+      <a href="mailto:ST10266994@vcconnect.edu.za">ST10266994@vcconnect.edu.za</a>
+    </td>
+  </tr>
+</table>
+
+---
