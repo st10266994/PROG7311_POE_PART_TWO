@@ -22,6 +22,7 @@
 ## 📚 Table of Contents
 
 - [📋 Project Overview](#-project-overview)
+- [🎥 Video Demonstration](#-video-demonstration)
 - [🌱 Features](#-features)
 - [🔧 Architecture Overview](#-architecture-overview)
 - [💻 Development Setup](#-development-setup)
@@ -45,6 +46,14 @@
 - 🌾 Farmers to log and manage products  
 - 🧑‍💼 Employees to manage farmer profiles and product inventories  
 - 🌍 Seamless interaction between agriculture and sustainability  
+
+---
+
+## 🎥 Video Demonstration
+
+[![Watch the Demo Video](https://img.shields.io/badge/YouTube-Watch%20Now-red?logo=youtube&style=for-the-badge)](https://youtu.be/oJ1uB-0q4uY?si=AIpTsvn7arOyRi-k)
+
+Watch the full demonstration of the Agri-Energy Connect Platform, showcasing the user roles, key features, architecture, and database integration in action.
 
 ---
 
