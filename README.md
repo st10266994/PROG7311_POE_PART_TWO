@@ -86,7 +86,7 @@
 ### ⚙️ Installation & Build Steps
 
 <details>
-<summary><strong>Click to expand setup steps 🛠️</strong></summary>
+
 
 1. **Clone the Repository**
    ```bash
