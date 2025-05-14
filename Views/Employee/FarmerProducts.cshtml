@@ -1,0 +1,97 @@
+﻿@model IEnumerable<PROG7311_PART_TWO.Models.Product>
+@{
+    ViewData["Title"] = "Farmer Products";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="text-center mx-auto mb-5" style="max-width: 500px;">
+            <h1 class="display-5">Products by @ViewBag.Farmer.Firstname @ViewBag.Farmer.Lastname</h1>
+            <hr class="w-25 mx-auto text-primary" style="opacity: 1;">
+        </div>
+
+        <!-- Filter Form -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="bg-white p-4 rounded shadow">
+                    <form asp-action="FarmerProducts" asp-route-id="@ViewBag.Farmer.Id" method="get" class="row g-3">
+                        <div class="col-md-3">
+                            <label class="form-label">From Date</label>
+                            <input type="date" name="fromDate" class="form-control" value="@ViewBag.FromDate?.ToString("yyyy-MM-dd")">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">To Date</label>
+                            <input type="date" name="toDate" class="form-control" value="@ViewBag.ToDate?.ToString("yyyy-MM-dd")">
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Category</label>
+                            <select name="category" class="form-select">
+                                <option value="">All Categories</option>
+                                @if (ViewBag.Categories != null)
+                                {
+                                    foreach (var category in ViewBag.Categories)
+                                    {
+                                        if (category == ViewBag.Category)
+                                        {
+                                            <option value="@category" selected>@category</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="@category">@category</option>
+                                        }
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label class="form-label">Search</label>
+                            <div class="input-group">
+                                <input type="text" name="searchString" class="form-control" placeholder="Search products..." value="@ViewBag.SearchString">
+                                <button type="submit" class="btn btn-primary">Filter</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info">
+                No products found matching your criteria for this farmer.
+            </div>
+        }
+        else
+        {
+            <div class="row g-4">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-item position-relative bg-white p-3 rounded shadow h-100 d-flex flex-column">
+                            @if (!string.IsNullOrEmpty(item.ImageUrlPath))
+                            {
+                                <img class="img-fluid w-100 mb-3" style="object-fit: cover; height: 200px;" src="@item.ImageUrlPath" alt="@item.Name">
+                            }
+                            else
+                            {
+                                <img class="img-fluid w-100 mb-3" style="object-fit: cover; height: 200px;" src="/images/products/default-product.jpg" alt="@item.Name">
+                            }
+                            <h5>@item.Name</h5>
+                            <p class="mb-2"><strong>Category:</strong> @item.Category</p>
+                            <p class="mb-2"><strong>Production Date:</strong> @item.ProductionDate.ToShortDateString()</p>
+                            <p class="mb-4 text-truncate">@item.Description</p>
+                            <div class="mt-auto">
+                                <a asp-action="ProductDetails" asp-route-id="@item.ProductId" class="btn btn-primary w-100">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        }
+
+        <div class="mt-4">
+            <a asp-action="FarmerIndex" class="btn btn-outline-secondary">Back to Farmers List</a>
+        </div>
+    </div>
+</div>

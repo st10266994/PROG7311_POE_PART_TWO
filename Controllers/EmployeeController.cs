@@ -192,8 +192,7 @@ namespace PROG7311_PART_TWO.Controllers
             return View(product);
         }
 
-        // GET: Employee/FarmerProducts/5
-        public async Task<IActionResult> FarmerProducts(string id)
+        public async Task<IActionResult> FarmerProducts(string id, DateTime? fromDate, DateTime? toDate, string category, string searchString)
         {
             if (id == null)
             {
@@ -213,14 +212,53 @@ namespace PROG7311_PART_TWO.Controllers
                 return NotFound();
             }
 
-            var products = await _context.Products
+            // Start with products from this farmer
+            var productsQuery = _context.Products
                 .Include(p => p.User)
                 .Where(p => p.UserId == id)
+                .AsQueryable();
+
+            // Apply date range filter
+            if (fromDate.HasValue)
+            {
+                productsQuery = productsQuery.Where(p => p.ProductionDate >= fromDate.Value);
+            }
+
+            if (toDate.HasValue)
+            {
+                productsQuery = productsQuery.Where(p => p.ProductionDate <= toDate.Value);
+            }
+
+            // Apply category filter
+            if (!string.IsNullOrEmpty(category))
+            {
+                productsQuery = productsQuery.Where(p => p.Category == category);
+            }
+
+            // Apply search filter
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                productsQuery = productsQuery.Where(p => p.Name.Contains(searchString) || p.Description.Contains(searchString));
+            }
+
+            var products = await productsQuery.ToListAsync();
+
+            // Get list of categories for this farmer's products for the filter dropdown
+            ViewBag.Categories = await _context.Products
+                .Where(p => p.UserId == id)
+                .Select(p => p.Category)
+                .Distinct()
                 .ToListAsync();
 
             ViewBag.Farmer = farmer;
+            ViewBag.FromDate = fromDate;
+            ViewBag.ToDate = toDate;
+            ViewBag.Category = category;
+            ViewBag.SearchString = searchString;
 
             return View(products);
         }
+
+
     }
 }
